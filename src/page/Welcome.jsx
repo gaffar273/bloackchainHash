@@ -76,12 +76,12 @@ const Welcome = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="mt-8 flex flex-col items-center gap-3 ">
             <button
               onClick={() => navigate('/home')}
-              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg font-bold px-10 py-4 rounded-2xl shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300 transform hover:scale-110 active:scale-95"
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg font-bold px-10 py-4 rounded-2xl shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300 transform hover:scale-110 active:scale-95 hover:cursor-pointer"
             >
-              <span>Get Started</span>
+              <span >Get Started</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
               
               {/* Animated Border */}

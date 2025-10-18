@@ -31,26 +31,32 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-black/90 backdrop-blur-2xl border-b border-emerald-500/30 shadow-2xl shadow-emerald-500/10 mx-4 mt-4 rounded-2xl' 
-        : 'bg-black/40 backdrop-blur-xl border-b border-emerald-500/20'
+        ? 'bg-black/70 backdrop-blur-xl border-b border-emerald-500/30 shadow-2xl shadow-emerald-500/10 mx-4 mt-4 rounded-2xl' 
+        : 'bg-black/20 backdrop-blur-md border-b border-emerald-500/20'
     }`}>
       <div className={`max-w-7xl mx-auto px-6 transition-all duration-500 ${
-        isScrolled ? 'py-3' : ''
+        isScrolled ? 'py-4' : 'py-2'
       }`}>
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-emerald-500/30 rounded-lg blur-md group-hover:bg-emerald-500/50 transition-all duration-300"></div>
-              <div className="relative bg-gradient-to-br from-emerald-500 to-teal-500 p-1.5 rounded-lg">
-                <img src={logo} alt="CryptoHash Logo" className='h-8 w-8 object-cover rounded'/>
+              <div className="absolute inset-0 bg-emerald-500/20 rounded-xl blur-lg group-hover:bg-emerald-500/40 transition-all duration-300"></div>
+              <div className="relative overflow-hidden rounded-xl border-2 border-emerald-500/40 group-hover:border-emerald-400/60 transition-all duration-300">
+                <img 
+                  src={logo} 
+                  alt="CryptoHash Logo" 
+                  className='h-12 w-12 object-cover'
+                />
               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent leading-tight">
                 CryptoHash
               </span>
-              <span className="text-[9px] text-gray-400 -mt-1 tracking-wide">KGP Blockchain</span>
+              <span className="text-xs text-gray-400 font-medium tracking-wider uppercase">
+                KGP Blockchain
+              </span>
             </div>
           </Link>
 
@@ -60,7 +66,7 @@ const Navbar = () => {
               <Link
                 key={path}
                 to={path}
-                className={`relative flex items-center gap-2 px-5 py-2 rounded-xl font-semibold transition-all duration-300 ${
+                className={`relative flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive(path)
                     ? 'text-white bg-emerald-500/20 shadow-lg shadow-emerald-500/20'
                     : 'text-gray-400 hover:text-emerald-300 hover:bg-emerald-500/10'
