@@ -3,10 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Hash, Sparkles, Zap, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
+
 const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,16 +19,26 @@ const Navbar = () => {
       }
     };
 
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path) => location.pathname === path;
+
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === path;
+    }
+    // For /home, check if pathname starts with /home
+    return location.pathname.startsWith(path);
+  };
+
 
   const navLinks = [
     { path: '/', label: 'Discovery', icon: Sparkles },
     { path: '/home', label: 'HashLab', icon: Zap }
   ];
+
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -60,6 +72,7 @@ const Navbar = () => {
             </div>
           </Link>
 
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map(({ path, label, icon: Icon }) => (
@@ -81,6 +94,7 @@ const Navbar = () => {
             ))}
           </div>
 
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -93,6 +107,7 @@ const Navbar = () => {
             )}
           </button>
         </div>
+
 
         {/* Mobile Navigation */}
         {isOpen && (
@@ -125,5 +140,6 @@ const Navbar = () => {
     </nav>
   );
 };
+
 
 export default Navbar;
